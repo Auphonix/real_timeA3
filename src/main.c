@@ -68,12 +68,14 @@ void display()
     // Draw Arena
     drawArena(&g.arena);
 
+    // Draw catcher
+    drawCatcher(&g.catcher);
+
     // Draw pegs
     drawPegs(g.pegs, g.num_pegs);
 
     // Draw Player
     drawPlayer(&g.player);
-
     drawBall(&g.projectile);
 
     SDL_GL_SwapWindow(mainWindow);
@@ -98,6 +100,9 @@ void update()
         g.time.lastTime = g.time.currentTime;
         g.time.frames = 0;
     }
+
+    //Move catcher
+    moveCatcher(&g.time, &g.catcher);
 
     // move ball using numerical integration
     moveBall(&g.time, g.pegs, &g.projectile);

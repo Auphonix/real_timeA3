@@ -38,6 +38,16 @@ void initGlobals(Globals* g, bool reset){
     projectileInit(&g->projectile, 2, (vec2) {0, 2.5}, (vec2) {0, 0}, 0.05, 2, 1.0, 10, 3, (vec3) {1, 0.075, 0.0});
 
 
+
+    /*-------- CATCHER INIT ----------*/
+    // catcher
+    // pos
+    // width
+    // vel
+    // color
+    catcherInit(&g->catcher, (vec2) {0, -1.5}, 0.5, 0.5, (vec3) {1, 0.075, 0.0});
+
+
     /*--------- PEG SETUP -----------*/
     // if(reset){
     //     Peg* p = g->pegs;
