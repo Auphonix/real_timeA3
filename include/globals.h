@@ -1,36 +1,36 @@
 #ifndef GLOBALS_H
 #define GLOBALS_H
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdbool.h>
-
-#if _WIN32
-#  include <Windows.h>
-#endif
-#if __APPLE__
-#  include <OpenGL/gl.h>
-#  include <OpenGL/glu.h>
-#else
-#  include <GL/gl.h>
-#  include <GL/glu.h>
-#endif
-
-#include <SDL2/SDL.h>
-
 #include "helpers.h"
 #include "player.h"
+#include "time.h"
+#include "projectile.h"
+#include "arena.h"
+#include "peg.h"
+
+typedef struct Toggles {
+    bool axis;
+    bool console;
+} Toggles;
 
 typedef struct Globals {
-    // FPS
-    unsigned int lastTime;
-    unsigned int currentTime;
-    int frames;
-    float time_passed;
+    Toggles toggles;
+    Time time;
+    Player player;
+    Arena arena;
+    Projectile projectile;
 
-    Player* player;
+    int num_pegs;
+    Peg pegs[100];
+
+    // Game
+    int total_score;
+    int ball_score;
+    int balls;
+    float multiplier;
+
 } Globals;
 
-void initGlobals(Globals* g);
+void initGlobals(Globals* g, bool reset);
 
 #endif

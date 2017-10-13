@@ -8,6 +8,8 @@ typedef struct Player{
     float angle;
 } Player;
 
-void playerInit();
+void playerInit(Player* player, float angle, vec2 pos);
+void drawPlayer(Player* player);
+void movePlayer(Player* player);
 
 #endif
