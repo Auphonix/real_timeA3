@@ -35,7 +35,7 @@ void initGlobals(Globals* g, bool reset){
     // slice
     // loop
     // color
-    projectileInit(&g->projectile, 2, (vec2) {0, 2.5}, (vec2) {0, 0}, 0.05, 1, 1.0, 10, 3, (vec3) {1, 0.075, 0.0});
+    projectileInit(&g->projectile, 2, (vec2) {0, 2.5}, (vec2) {0, 0}, 0.05, 2, 1.0, 10, 3, (vec3) {1, 0.075, 0.0});
 
 
     /*--------- PEG SETUP -----------*/
@@ -66,7 +66,7 @@ void initGlobals(Globals* g, bool reset){
     // loop
     // color
     //(vec3) {0.25, 0.5, 0}
-    pegInit(g->pegs, g->num_pegs, 0.05, 6, 1.0, 10, 3, (vec3) {0.337, 0.365, 0.275});
+    pegInit(g->pegs, g->num_pegs, 0.05, 30, 1.0, 10, 3, (vec3) {0.337, 0.365, 0.275});
 
 
     /*----------- GAME INIT ----------*/

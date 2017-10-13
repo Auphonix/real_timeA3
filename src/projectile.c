@@ -1,7 +1,7 @@
 #include "projectile.h"
 #include <math.h>
 
-#define GRAVITY 3.5;
+#define GRAVITY 3;
 #define PEG_POINT 10;
 
 void projectileInit(Projectile* p, float speed, vec2 pos, vec2 vel, float r, float m, float e, int slice, int loop, vec3 color){
@@ -147,14 +147,16 @@ int checkCollision(Arena* a, Peg* pe, Projectile* pr, float num_pegs, float* mul
     }
 
     // wall bounce on x plane
-    if ((pr->pos.x - pr->radius) <= -a->dimension.x ||
-    (pr->pos.x + pr->radius) >= a->dimension.x) {
+    if ((pr->pos.x - pr->radius) < -a->dimension.x ||
+    (pr->pos.x + pr->radius) > a->dimension.x) {
         a->P.x += pr->mass * pr->vel.x * 2;
 
-        if(pr->vel.x < 0) // Left wall hit
+        if(pr->vel.x < 0){ // Left wall hit
         pr->pos.x = -a->dimension.x + pr->radius; // Prevent rebounce
-        if(pr->vel.x > 0) // Left wall hit
+      }
+        else if(pr->vel.x > 0){ // Left wall hit
         pr->pos.x = a->dimension.x - pr->radius; // Prevent rebounce
+      }
         pr->vel.x *= -1;
         // printf("wall bounce horizontal\n");
     }
