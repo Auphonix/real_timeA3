@@ -113,8 +113,8 @@ int checkCollision(Arena* a, Peg* pe, Projectile* pr, float num_pegs, float* mul
 
                 //Normalize
                 float mag = sqrt(pow(n.x, 2) + pow(n.y, 2));
-                n.x = n.x / mag * (sum_radii + 0.001);
-                n.y = n.y / mag * (sum_radii + 0.001);
+                n.x = n.x / mag * (sum_radii + 0.000001);
+                n.y = n.y / mag * (sum_radii + 0.000001);
 
                 // Fix position
                 // printf("pe.x: %f\n", pe->pos.x + vector.x);
