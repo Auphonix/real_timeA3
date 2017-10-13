@@ -215,7 +215,9 @@ void collisionReactionParticles2DprojNormal(Projectile *pr, Peg *pe) {
     v2i = projnv2;
     m1 = pr->mass;
     m2 = pe->mass;
+    printf("v1i: %f\n", v1i);
     v1f = ((m1 - m2) / (m1 + m2)) * v1i + ((2.0 * m2) / (m1 + m2)) * v2i;
+    printf("v1f: %f\n", v1f);
     // Used for peg
     //v2f = 2.0 * m1 / (m1 + m2) * v1i + (m2 - m1) / (m1 + m2) * v2i;
 
