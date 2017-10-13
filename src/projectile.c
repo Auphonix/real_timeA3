@@ -113,8 +113,8 @@ int checkCollision(Arena* a, Peg* pe, Projectile* pr, float num_pegs, float* mul
 
                 //Normalize
                 float mag = sqrt(pow(n.x, 2) + pow(n.y, 2));
-                n.x = n.x / mag * sum_radii;
-                n.y = n.y / mag * sum_radii;
+                n.x = n.x / mag * (sum_radii + 0.001);
+                n.y = n.y / mag * (sum_radii + 0.001);
 
                 // Fix position
                 // printf("pe.x: %f\n", pe->pos.x + vector.x);
@@ -125,6 +125,7 @@ int checkCollision(Arena* a, Peg* pe, Projectile* pr, float num_pegs, float* mul
                 // printf("pos.x: %f\n", pr->pos.x);
                 // printf("pos.y: %f\n", pr->pos.y);
                 // printf("--------- END SEGMENT --------\n\n");
+
             }
             // DEALWITH COLLISION
             collisionReactionParticles2DprojNormal(pr, pe);
