@@ -66,7 +66,7 @@ void initGlobals(Globals* g, bool reset){
     // loop
     // color
     //(vec3) {0.25, 0.5, 0}
-    pegInit(g->pegs, g->num_pegs, 0.05, 30, 1.0, 10, 3, (vec3) {0.337, 0.365, 0.275});
+    pegInit(g->pegs, g->num_pegs, 0.05, 20, 1.0, 10, 3, (vec3) {0.337, 0.365, 0.275});
 
 
     /*----------- GAME INIT ----------*/
