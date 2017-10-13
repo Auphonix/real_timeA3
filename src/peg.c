@@ -29,6 +29,17 @@ void pegInit(Peg* p, float num_pegs, float r, float m, float e, int slice, int l
         p->color = color;
         p++; // Go to next array element
     }
+    p--;
+    p->pos = (vec2) {0, 0.8};
+    p->vel = (vec2) {0, 0};
+    p->radius = r;
+    p->mass = m;
+    p->elasticity = e;
+    p->quadric = gluNewQuadric();
+    p->slices = slice;
+    p->loops = loop;
+    p->color = color;
+    p++; // Go to next array elemen
 }
 
 bool checkPegPosOverlap(Peg* pinit, float x, float y, int i, float r){

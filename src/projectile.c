@@ -111,7 +111,6 @@ int checkCollision(Arena* a, Peg* pe, Projectile* pr, float num_pegs, float* mul
                 n.x = pe->pos.x - pr->pos.x;
                 n.y = pe->pos.y - pr->pos.y;
 
-
                 //Normalize
                 float mag = sqrt(pow(n.x, 2) + pow(n.y, 2));
                 n.x = n.x / mag * sum_radii;
@@ -195,29 +194,31 @@ void collisionReactionParticles2DprojNormal(Projectile *pr, Peg *pe) {
     float projnv1, projnv2;
     float m1, m2, v1i, v2i, v1f, v2f;
 
-    /* Normal vector n between centres. */
+    // Normal vector n between centres.
     // nx = x2 - x1
     n.x = pe->pos.x - pr->pos.x;
     n.y = pe->pos.y - pr->pos.y;
 
-    /* Normalise n. */
+    // Normalise n.
     // magnitude  = sqrt(nx^2 + ny^2)
     n_mag = sqrt(n.x * n.x + n.y * n.y);
     n.x /= n_mag;
     n.y /= n_mag;
 
-    /* Vector projection/component/resolute of velocity in n direction. */
+    // Vector projection of velocity in n direction.
     //vf = nx * vix + ny * viy
     projnv1 = n.x * pr->vel.x + n.y * pr->vel.y;
     projnv2 = n.x * pe->vel.x + n.y * pe->vel.y;
 
-    /* Use 1D equations to calculate final velocities in n direction. */
+    // Use 1D equations to calculate final velocities in n direction.
     v1i = projnv1;
     v2i = projnv2;
     m1 = pr->mass;
     m2 = pe->mass;
+    printf("initial Velocity: %f\n", v1i);
     v1f = (m1 - m2) / (m1 + m2) * v1i + 2.0 * m2 / (m1 + m2) * v2i;
-    v2f = 2.0 * m1 / (m1 + m2) * v1i + (m2 - m1) / (m1 + m2) * v2i;
+    // Used for peg
+    //v2f = 2.0 * m1 / (m1 + m2) * v1i + (m2 - m1) / (m1 + m2) * v2i;
 
     /* Vector addition to solve for final velocity. */
     pr->vel.x = (pr->vel.x - v1i * n.x) + v1f * n.x;
