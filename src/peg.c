@@ -30,7 +30,7 @@ void pegInit(Peg* p, float num_pegs, float r, float m, float e, int slice, int l
         p++; // Go to next array element
     }
     p--;
-    p->pos = (vec2) {0, 0.8};
+    p->pos = (vec2) {-0.05, 0.8};
     p->vel = (vec2) {0, 0};
     p->radius = r;
     p->mass = m;
